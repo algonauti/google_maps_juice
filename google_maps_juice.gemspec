@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Davide Papagni"]
   spec.email         = ["davide@algonauti.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = "Client for popular Google Maps API Services: Geocoding, Time Zones"
+  spec.description   = "Put Google Maps APIs in a spin-dryer and drink their juice: Geocoding, Time Zones, ...and more upcoming!"
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 

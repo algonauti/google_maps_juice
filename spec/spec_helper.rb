@@ -1,6 +1,9 @@
 require "bundler/setup"
 require "google_maps_juice"
 
+GoogleMapsJuice.configure do |config|
+  config.api_key = 'dummy_api_key'
+end
 
 RSpec.configure do |config|
   # Disable RSpec exposing methods globally on `Module` and `main`

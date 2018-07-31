@@ -6,4 +6,6 @@ require 'google_maps_juice/version'
 
 module GoogleMapsJuice
   extend ActiveSupport::Autoload
+
+  autoload :Client, 'google_maps_juice/client'
 end

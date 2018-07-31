@@ -1,4 +1,5 @@
 require "bundler/setup"
+require 'webmock/rspec'
 require "google_maps_juice"
 
 GoogleMapsJuice.configure do |config|

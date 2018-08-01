@@ -18,10 +18,21 @@ module GoogleMapsJuice
 
     def get(endpoint, params)
       full_params = (params || Hash.new).merge({ api_key: api_key })
-      connection.get(
+      response = connection.get(
         path: "#{API_PATH}#{endpoint}",
         query: full_params
       )
+      if healthy_http_status?(response.status)
+        response.body
+      else
+        msg = "HTTP #{response.status}"
+        msg += " - #{response.body}" if response.body.present?
+        raise GoogleMapsJuice::Error, msg
+      end
+    end
+
+    def healthy_http_status?(status)
+      /^[123]\d{2}$/.match?("#{status}")
     end
 
   end

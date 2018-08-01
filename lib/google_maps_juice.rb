@@ -1,6 +1,8 @@
 require 'active_support/core_ext/object'
 require 'active_support/dependencies/autoload'
 
+require 'excon'
+
 require 'google_maps_juice/configuration'
 require 'google_maps_juice/version'
 

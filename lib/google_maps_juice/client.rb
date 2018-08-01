@@ -3,8 +3,8 @@ module GoogleMapsJuice
     attr_reader :api_key, :connection
 
     class << self
-      def get(endpoint, params)
-        self.new.get(endpoint, params)
+      def get(endpoint, params, api_key: GoogleMapsJuice.config.api_key)
+        self.new(api_key: api_key).get(endpoint, params)
       end
     end
 

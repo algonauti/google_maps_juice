@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe GoogleMapsJuice::Client do
-  let(:base_url) { "#{described_class::API_HOST}#{described_class::API_PATH}" }
+  let(:base_url) { 'https://maps.googleapis.com/maps/api' }
 
   describe '.get' do
     let(:endpoint) { '/my-endpoint' }
@@ -10,7 +10,7 @@ RSpec.describe GoogleMapsJuice::Client do
       params.merge({ api_key: GoogleMapsJuice.config.api_key }).to_query
     end
 
-    before { stub_request(:get, Regexp.new("#{base_url}/*")) }
+    before { stub_request(:get, Regexp.new("#{base_url}#{endpoint}*")) }
 
     it 'calls API endpoint with params' do
       described_class.get(endpoint, params)

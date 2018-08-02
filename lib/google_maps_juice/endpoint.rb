@@ -9,7 +9,9 @@ module GoogleMapsJuice
 
     def detect_errors(response)
       raise ArgumentError, 'GoogleMapsJuice::Endpoint::Response argument expected' unless response.is_a?(Response)
-      if response.error?
+      if response.zero_results?
+        raise GoogleMapsJuice::ZeroResults
+      elsif response.error?
         msg = "API #{response.status}"
         msg += " - #{response.error_message}" if response.error_message.present?
         raise GoogleMapsJuice::Error, msg
@@ -27,6 +29,10 @@ module GoogleMapsJuice
 
       def error?
         status.upcase != 'OK'
+      end
+
+      def zero_results?
+        status.upcase == 'ZERO_RESULTS'
       end
 
       def error_message

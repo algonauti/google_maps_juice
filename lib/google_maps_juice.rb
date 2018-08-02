@@ -12,7 +12,8 @@ module GoogleMapsJuice
 
   autoload :Client, 'google_maps_juice/client'
   autoload :Endpoint, 'google_maps_juice/endpoint'
+  autoload :Geocoding, 'google_maps_juice/geocoding'
 
-  class Error < Exception
-  end
+  class Error < Exception; end
+  class ZeroResults < Exception; end
 end

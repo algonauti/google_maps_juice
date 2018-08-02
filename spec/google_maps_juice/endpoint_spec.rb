@@ -31,13 +31,20 @@ RSpec.describe GoogleMapsJuice::Endpoint do
 
     subject { some_endpoint.invoke(params) }
 
+    context 'when response returns zero results' do
+      let(:response) { response_fixture('zero-results') }
+
+      it 'raises GoogleMapsJuice::ZeroResults' do
+        expect { subject }.to raise_error(GoogleMapsJuice::ZeroResults)
+      end
+    end
+
     context 'when response contains error' do
       let(:response) { response_fixture('error') }
 
       it 'raises GoogleMapsJuice::Error' do
         expect { subject }.to raise_error(GoogleMapsJuice::Error,
-          'API OVER_QUERY_LIMIT - You have exceeded your daily request quota for this API.'
-        )
+          'API OVER_QUERY_LIMIT - You have exceeded your daily request quota for this API.')
       end
     end
 

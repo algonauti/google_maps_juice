@@ -1,0 +1,84 @@
+{
+  "results": [
+    {
+      "address_components": [
+        {
+          "long_name": "8955",
+          "short_name": "8955",
+          "types": [
+            "street_number"
+          ]
+        },
+        {
+          "long_name": "Lantana Road",
+          "short_name": "Lantana Rd",
+          "types": [
+            "route"
+          ]
+        },
+        {
+          "long_name": "Crossville",
+          "short_name": "Crossville",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Cumberland County",
+          "short_name": "Cumberland County",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Tennessee",
+          "short_name": "TN",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        },
+        {
+          "long_name": "38572",
+          "short_name": "38572",
+          "types": [
+            "postal_code"
+          ]
+        }
+      ],
+      "formatted_address": "8955 Lantana Rd, Crossville, TN 38572, USA",
+      "geometry": {
+        "location": {
+          "lat": 35.8458658,
+          "lng": -85.1265277
+        },
+        "location_type": "RANGE_INTERPOLATED",
+        "viewport": {
+          "northeast": {
+            "lat": 35.84721478029149,
+            "lng": -85.1251787197085
+          },
+          "southwest": {
+            "lat": 35.8445168197085,
+            "lng": -85.12787668029151
+          }
+        }
+      },
+      "place_id": "Eio4OTU1IExhbnRhbmEgUmQsIENyb3NzdmlsbGUsIFROIDM4NTcyLCBVU0EiGxIZChQKEglLkF3PbE1niBH1EdXqwDu_mBD7RQ",
+      "types": [
+        "street_address"
+      ]
+    }
+  ],
+  "status": "OK"
+}

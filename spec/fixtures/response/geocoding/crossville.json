@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "address_components": [
+        {
+          "long_name": "Crossville",
+          "short_name": "Crossville",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Cumberland County",
+          "short_name": "Cumberland County",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Tennessee",
+          "short_name": "TN",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Crossville, TN, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 36.01202,
+            "lng": -84.974817
+          },
+          "southwest": {
+            "lat": 35.886623,
+            "lng": -85.094836
+          }
+        },
+        "location": {
+          "lat": 35.9489566,
+          "lng": -85.0269014
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 36.01202,
+            "lng": -84.974817
+          },
+          "southwest": {
+            "lat": 35.886623,
+            "lng": -85.094836
+          }
+        }
+      },
+      "partial_match": true,
+      "place_id": "ChIJYUPm78ZQZ4gRIZW1AnF1iE8",
+      "types": [
+        "locality",
+        "political"
+      ]
+    }
+  ],
+  "status": "OK"
+}

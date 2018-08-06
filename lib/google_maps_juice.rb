@@ -15,5 +15,6 @@ module GoogleMapsJuice
   autoload :Geocoding, 'google_maps_juice/geocoding'
 
   class Error < Exception; end
+  class ApiLimitError < Exception; end
   class ZeroResults < Exception; end
 end

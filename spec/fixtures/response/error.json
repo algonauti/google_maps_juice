@@ -1,5 +1,5 @@
 {
-  "error_message": "You have exceeded your daily request quota for this API.",
+  "error_message": "A server error occurred, please retry later",
   "results": [],
-  "status": "OVER_QUERY_LIMIT"
+  "status": "UNKNOWN_ERROR"
 }

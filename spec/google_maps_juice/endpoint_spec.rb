@@ -39,12 +39,21 @@ RSpec.describe GoogleMapsJuice::Endpoint do
       end
     end
 
+    context 'when response contains limit error' do
+      let(:response) { response_fixture('limit-error') }
+
+      it 'raises GoogleMapsJuice::Error' do
+        expect { subject }.to raise_error(GoogleMapsJuice::ApiLimitError,
+          'OVER_QUERY_LIMIT - You have exceeded your daily request quota for this API.')
+      end
+    end
+
     context 'when response contains error' do
       let(:response) { response_fixture('error') }
 
       it 'raises GoogleMapsJuice::Error' do
         expect { subject }.to raise_error(GoogleMapsJuice::Error,
-          'API OVER_QUERY_LIMIT - You have exceeded your daily request quota for this API.')
+          'API UNKNOWN_ERROR - A server error occurred, please retry later')
       end
     end
 

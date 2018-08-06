@@ -56,7 +56,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
         let(:response) { response_fixture('geocoding/lantana-rd') }
 
         context 'with a full address' do
-          let(:params) { { address: '8955 Lantana Rd, Crossville, TN 38572, USA' } }
+          let(:params) { { address: '8955 Lantana Rd, Lake Worth, FL 33467, USA' } }
 
           it 'returns fully-maching result' do
             expect_lantana_rd_result(subject)
@@ -67,7 +67,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
           let(:params) do
             {
               address: '8955 Lantana Rd',
-              components: 'locality:Crossville|postal_code:38572|administrative_area:TN|country:US',
+              components: 'locality:Lake Worth|postal_code:33467|administrative_area:FL|country:US',
               language: 'en'
             }
           end

@@ -10,6 +10,11 @@ module GoogleMapsJuice
         client = GoogleMapsJuice::Client.new(api_key: api_key)
         self.new(client).geocode(params)
       end
+
+      def i_geocode(params, api_key: GoogleMapsJuice.config.api_key)
+        client = GoogleMapsJuice::Client.new(api_key: api_key)
+        self.new(client).i_geocode(params)
+      end
     end
 
 
@@ -22,8 +27,24 @@ module GoogleMapsJuice
 
     def i_geocode(params)
       validate_i_geocode_params(params)
-      req_params = build_req_params(params)
-      # TODO
+      response = nil
+      removable_keys = [:address, :postal_code]
+      begin
+        request_params = build_request_params(params)
+        response = geocode(request_params)
+      rescue ZeroResults => e
+        deleted_param = nil
+        while removable_keys.present? && deleted_param.nil?
+          key = removable_keys.pop
+          deleted_param = params.delete(key)
+        end
+        if deleted_param.present?
+          retry
+        else
+          raise e
+        end
+      end
+      response
     end
 
     def validate_geocode_params(params)
@@ -46,16 +67,16 @@ module GoogleMapsJuice
       validate_required_params(params, required_keys)
     end
 
-    def build_req_params(i_geocode_params)
+    def build_request_params(i_geocode_params)
       req_params = Hash.new
 
       [:address, :language].each do |key|
-        if params[key].present?
-          req_params[key] = params[key]
+        if i_geocode_params[key].present?
+          req_params[key] = i_geocode_params[key]
         end
       end
 
-      components = build_components_param(params, keys:
+      components = build_components_param(i_geocode_params, keys:
         [:locality, :postal_code, :administrative_area, :country]
       )
       if components.present?

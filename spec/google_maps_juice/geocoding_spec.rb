@@ -132,4 +132,45 @@ RSpec.describe GoogleMapsJuice::Geocoding do
     end
   end
 
+
+  describe '#i_geocode' do
+
+    subject { geocoding.i_geocode(params) }
+
+
+    context 'with bad params' do
+
+      context 'when params is not a Hash' do
+        let(:params) { 'foobar' }
+
+        it 'raises ArgumentError' do
+          expect { subject }.to raise_error(ArgumentError, 'Hash argument expected')
+        end
+      end
+
+      context 'when some unsupported param is passed' do
+        let(:params) { { address: '123 Pine Road', foo: 'hey', bar: 'man' } }
+
+        it 'raises ArgumentError' do
+          expect { subject }.to raise_error(ArgumentError,
+            'The following params are not supported: foo, bar')
+        end
+      end
+
+      context 'when no country is passed' do
+        let(:params) { { address: '123 Pine Road' } }
+
+        it 'raises ArgumentError' do
+          expect { subject }.to raise_error(ArgumentError,
+            ':country param is required')
+        end
+      end
+    end
+
+    context 'with good params' do
+      # TODO
+    end
+
+  end
+
 end

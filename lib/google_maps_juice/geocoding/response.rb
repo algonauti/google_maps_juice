@@ -27,6 +27,10 @@ module GoogleMapsJuice
       result['address_components']
     end
 
+    def precision
+      address_components&.first['types']&.first
+    end
+
 
     %w( street_number
         route

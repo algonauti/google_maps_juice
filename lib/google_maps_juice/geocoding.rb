@@ -32,13 +32,8 @@ module GoogleMapsJuice
       supported_keys = %w( address components bounds language region )
       validate_supported_params(params, supported_keys)
 
-      required_params = %w( address components )
-      required_params_present = params.keys.any? do |key|
-        required_params.include?(key.to_s)
-      end
-      unless required_params_present
-        raise ArgumentError, "One of the following params is required: #{required_params.join(', ')}"
-      end
+      required_keys = %w( address components )
+      validate_required_params(params, required_keys)
     end
 
     def validate_i_geocode_params(params)
@@ -47,9 +42,8 @@ module GoogleMapsJuice
       supported_keys = %w( address locality postal_code administrative_area country language)
       validate_supported_params(params, supported_keys)
 
-      unless params.keys.include?(:country)
-        raise ArgumentError, ':country param is required'
-      end
+      required_keys = %w( address country )
+      validate_required_params(params, required_keys)
     end
 
     def build_req_params(i_geocode_params)
@@ -85,6 +79,15 @@ module GoogleMapsJuice
       end
       if unsupported_params.present?
         raise ArgumentError, "The following params are not supported: #{unsupported_params.join(', ')}"
+      end
+    end
+
+    def validate_required_params(params, required_keys)
+      required_params_present = params.keys.any? do |key|
+        required_keys.include?(key.to_s)
+      end
+      unless required_params_present
+        raise ArgumentError, "One of the following params is required: #{required_keys.join(', ')}"
       end
     end
 

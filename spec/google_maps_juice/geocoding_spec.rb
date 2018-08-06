@@ -157,12 +157,12 @@ RSpec.describe GoogleMapsJuice::Geocoding do
         end
       end
 
-      context 'when no country is passed' do
-        let(:params) { { address: '123 Pine Road' } }
+      context 'when none of the required params is passed' do
+        let(:params) { { postal_code: 'AB345' } }
 
         it 'raises ArgumentError' do
           expect { subject }.to raise_error(ArgumentError,
-            ':country param is required')
+            'One of the following params is required: address, country')
         end
       end
     end

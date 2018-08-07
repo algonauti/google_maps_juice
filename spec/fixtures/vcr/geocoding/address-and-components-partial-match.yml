@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=209+Angie+Street&api_key=<API_KEY>&components=locality%3ARonaldo%7Cpostal_code%3A32806%7Cadministrative_area%3AFL%7Ccountry%3AUS
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.62.0
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 07 Aug 2018 08:36:57 GMT
+      Expires:
+      - Wed, 08 Aug 2018 08:36:57 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="44,43,39,35"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "32806",
+                       "short_name" : "32806",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "Orlando",
+                       "short_name" : "Orlando",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Orange County",
+                       "short_name" : "Orange County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Florida",
+                       "short_name" : "FL",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Orlando, FL 32806, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 28.5352379,
+                          "lng" : -81.3310319
+                       },
+                       "southwest" : {
+                          "lat" : 28.485944,
+                          "lng" : -81.38582079999999
+                       }
+                    },
+                    "location" : {
+                       "lat" : 28.5085825,
+                       "lng" : -81.3564411
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 28.5352379,
+                          "lng" : -81.3310319
+                       },
+                       "southwest" : {
+                          "lat" : 28.485944,
+                          "lng" : -81.38582079999999
+                       }
+                    }
+                 },
+                 "partial_match" : true,
+                 "place_id" : "ChIJSxCfNkB754gRsl-bmhk1IcM",
+                 "types" : [ "postal_code" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Tue, 07 Aug 2018 08:36:57 GMT
+recorded_with: VCR 4.0.0

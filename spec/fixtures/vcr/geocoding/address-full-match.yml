@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=via+Fragata+35%2C+76011+Bisceglie+BT+Italia&api_key=<API_KEY>&language=it
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.62.0
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 07 Aug 2018 07:16:01 GMT
+      Expires:
+      - Wed, 08 Aug 2018 07:16:01 GMT
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - public, max-age=86400
+      Age:
+      - '1296'
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="44,43,39,35"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "35",
+                       "short_name" : "35",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "Via Fragata",
+                       "short_name" : "Via Fragata",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Bisceglie",
+                       "short_name" : "Bisceglie",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Bisceglie",
+                       "short_name" : "Bisceglie",
+                       "types" : [ "administrative_area_level_3", "political" ]
+                    },
+                    {
+                       "long_name" : "Provincia di Barletta-Andria-Trani",
+                       "short_name" : "BT",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Puglia",
+                       "short_name" : "Puglia",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "Italia",
+                       "short_name" : "IT",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "76011",
+                       "short_name" : "76011",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "Via Fragata, 35, 76011 Bisceglie BT, Italia",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 41.2403256,
+                       "lng" : 16.507746
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 41.24167458029149,
+                          "lng" : 16.5090949802915
+                       },
+                       "southwest" : {
+                          "lat" : 41.2389766197085,
+                          "lng" : 16.5063970197085
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJwTqTegwHOBMR73I8HydkPws",
+                 "plus_code" : {
+                    "compound_code" : "6GR5+43 Bisceglie, BT, Italia",
+                    "global_code" : "8FHR6GR5+43"
+                 },
+                 "types" : [ "street_address" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Tue, 07 Aug 2018 07:37:37 GMT
+recorded_with: VCR 4.0.0

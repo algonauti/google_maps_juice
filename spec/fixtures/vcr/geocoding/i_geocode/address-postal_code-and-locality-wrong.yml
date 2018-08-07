@@ -1,0 +1,228 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=Nowhere+to+go&api_key=<API_KEY>&components=locality%3AMonkmily%7Cpostal_code%3A36ABC%7Cadministrative_area%3AAL%7Ccountry%3AUS
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.62.0
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 07 Aug 2018 13:25:29 GMT
+      Expires:
+      - Wed, 08 Aug 2018 13:25:29 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="44,43,39,35"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+    http_version: 
+  recorded_at: Tue, 07 Aug 2018 13:25:14 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=Nowhere+to+go&api_key=<API_KEY>&components=locality%3AMonkmily%7Cadministrative_area%3AAL%7Ccountry%3AUS
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.62.0
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 07 Aug 2018 13:25:30 GMT
+      Expires:
+      - Wed, 08 Aug 2018 13:25:30 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="44,43,39,35"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+    http_version: 
+  recorded_at: Tue, 07 Aug 2018 13:25:15 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?api_key=<API_KEY>&components=locality%3AMonkmily%7Cadministrative_area%3AAL%7Ccountry%3AUS
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.62.0
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 07 Aug 2018 13:25:31 GMT
+      Expires:
+      - Wed, 08 Aug 2018 13:25:31 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="44,43,39,35"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [],
+           "status" : "ZERO_RESULTS"
+        }
+    http_version: 
+  recorded_at: Tue, 07 Aug 2018 13:25:15 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?api_key=<API_KEY>&components=administrative_area%3AAL%7Ccountry%3AUS
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - excon/0.62.0
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 07 Aug 2018 13:25:32 GMT
+      Expires:
+      - Wed, 08 Aug 2018 13:25:32 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="44,43,39,35"
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Language,Accept-Encoding
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "Alabama",
+                       "short_name" : "AL",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Alabama, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 35.008028,
+                          "lng" : -84.888246
+                       },
+                       "southwest" : {
+                          "lat" : 30.144425,
+                          "lng" : -88.4732269
+                       }
+                    },
+                    "location" : {
+                       "lat" : 32.3182314,
+                       "lng" : -86.902298
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 35.008028,
+                          "lng" : -84.888246
+                       },
+                       "southwest" : {
+                          "lat" : 30.144425,
+                          "lng" : -88.4732269
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJdf5LHzR_hogR6czIUzU0VV4",
+                 "types" : [ "administrative_area_level_1", "political" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Tue, 07 Aug 2018 13:25:16 GMT
+recorded_with: VCR 4.0.0

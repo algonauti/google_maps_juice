@@ -1,9 +1,12 @@
 require "bundler/setup"
 require 'webmock/rspec'
 require "google_maps_juice"
+require 'dotenv/load'
+
+Dotenv.overload('.env', '.env.test')
 
 GoogleMapsJuice.configure do |config|
-  config.api_key = 'dummy_api_key'
+  config.api_key = ENV.fetch('API_KEY') { 'dummy_api_key' }
 end
 
 module FixtureHelpers

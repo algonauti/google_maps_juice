@@ -1,7 +1,8 @@
 require "bundler/setup"
-require 'webmock/rspec'
 require "google_maps_juice"
 require 'dotenv/load'
+require 'webmock'
+require 'webmock/rspec/matchers'
 
 Dotenv.overload('.env', '.env.test')
 
@@ -33,6 +34,19 @@ module VCRTestHelpers
   end
 end
 
+module WebmockEnabler
+  extend ActiveSupport::Concern
+
+  included do
+    before { WebMock.enable! }
+
+    after do
+      WebMock.reset!
+      WebMock.disable!
+    end
+  end
+end
+
 RSpec.configure do |config|
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!
@@ -42,5 +56,8 @@ RSpec.configure do |config|
   end
 
   config.include FixtureHelpers
+  config.include WebMock::API, webmock: true
+  config.include WebMock::Matchers, webmock: true
+  config.include WebmockEnabler, webmock: true
   config.include VCRTestHelpers, vcr: true
 end

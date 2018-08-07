@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe GoogleMapsJuice::Endpoint do
+RSpec.describe GoogleMapsJuice::Endpoint, webmock: true do
 
   before do
 

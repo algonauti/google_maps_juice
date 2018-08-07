@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe GoogleMapsJuice::Client do
+RSpec.describe GoogleMapsJuice::Client, webmock: true do
   let(:base_url) { 'https://maps.googleapis.com/maps/api' }
 
   describe '.get' do

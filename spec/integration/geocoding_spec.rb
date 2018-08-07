@@ -5,7 +5,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
   describe '.geocode' do
     subject { described_class.geocode(params) }
 
-    context 'full match on address', vcr: { cassette_name: 'geocoding/address-full-match' } do
+    context 'full match on address', vcr: { cassette_name: 'geocoding/geocode/address-full-match' } do
       let(:params) { { address: 'via Fragata 35, 76011 Bisceglie BT Italia', language: 'it' } }
 
       it 'returns fully-maching result with street_number precision' do
@@ -23,7 +23,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
       end
     end
 
-    context 'full match on components', vcr: { cassette_name: 'geocoding/components-full-match' } do
+    context 'full match on components', vcr: { cassette_name: 'geocoding/geocode/components-full-match' } do
       let(:params) { { components: 'locality:Miami|postal_code:33137|administrative_area:FL|country:US' } }
 
       it 'returns fully-maching result with postal_code precision' do
@@ -41,7 +41,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
       end
     end
 
-    context 'full match on both address and components', vcr: { cassette_name: 'geocoding/address-and-components-full-match' } do
+    context 'full match on both address and components', vcr: { cassette_name: 'geocoding/geocode/address-and-components-full-match' } do
       let(:params) do
         {
           address: '209 Annie Street',
@@ -64,7 +64,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
       end
     end
 
-    context 'partial match on address', vcr: { cassette_name: 'geocoding/address-partial-match' } do
+    context 'partial match on address', vcr: { cassette_name: 'geocoding/geocode/address-partial-match' } do
       let(:params) { { address: '209 Angie St, Orlando, FL 32806, USA' } }
 
       it 'returns partially-maching result with postal_code precision' do
@@ -82,7 +82,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
       end
     end
 
-    context 'partial match on components (locality)', vcr: { cassette_name: 'geocoding/components-partial-match' } do
+    context 'partial match on components (locality)', vcr: { cassette_name: 'geocoding/geocode/components-partial-match' } do
       let(:params) { { components: 'locality:Macao|postal_code:33137|administrative_area:FL|country:US' } }
 
       it 'returns partially-maching result with postal_code precision' do
@@ -100,7 +100,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
       end
     end
 
-    context 'partial match on both address and components', vcr: { cassette_name: 'geocoding/address-and-components-partial-match' } do
+    context 'partial match on both address and components', vcr: { cassette_name: 'geocoding/geocode/address-and-components-partial-match' } do
       let(:params) do
         {
           address: '209 Angie Street',
@@ -123,7 +123,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
       end
     end
 
-    context 'no match on address', vcr: { cassette_name: 'geocoding/address-no-match' } do
+    context 'no match on address', vcr: { cassette_name: 'geocoding/geocode/address-no-match' } do
       let(:params) { { address: 'impossible to geocode this!' } }
 
       it 'raises GoogleMapsJuice::ZeroResults' do
@@ -131,7 +131,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
       end
     end
 
-    context 'no match on components (postal_code)', vcr: { cassette_name: 'geocoding/components-no-match' } do
+    context 'no match on components (postal_code)', vcr: { cassette_name: 'geocoding/geocode/components-no-match' } do
       let(:params) do
         {
           address: '1900 Gorgas St',

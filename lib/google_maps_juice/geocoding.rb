@@ -11,9 +11,9 @@ module GoogleMapsJuice
         self.new(client).geocode(params)
       end
 
-      def i_geocode(params, api_key: GoogleMapsJuice.config.api_key)
+      def i_geocode(params, sleep_before_retry: 0, api_key: GoogleMapsJuice.config.api_key)
         client = GoogleMapsJuice::Client.new(api_key: api_key)
-        self.new(client).i_geocode(params)
+        self.new(client).i_geocode(params, sleep_before_retry: sleep_before_retry)
       end
     end
 
@@ -25,10 +25,10 @@ module GoogleMapsJuice
       detect_errors(response)
     end
 
-    def i_geocode(params)
+    def i_geocode(params, sleep_before_retry: 0)
       validate_i_geocode_params(params)
       response = nil
-      removable_keys = [:address, :postal_code]
+      removable_keys = [:administrative_area, :locality, :address, :postal_code]
       begin
         request_params = build_request_params(params)
         response = geocode(request_params)
@@ -39,6 +39,7 @@ module GoogleMapsJuice
           deleted_param = params.delete(key)
         end
         if deleted_param.present?
+          sleep sleep_before_retry
           retry
         else
           raise e

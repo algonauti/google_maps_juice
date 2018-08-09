@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/geocode/json?address=209+Angie+Street&api_key=<API_KEY>&components=locality%3ARonaldo%7Cpostal_code%3A32806%7Cadministrative_area%3AFL%7Ccountry%3AUS
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=209+Angie+Street&components=locality%3ARonaldo%7Cpostal_code%3A32806%7Cadministrative_area%3AFL%7Ccountry%3AUS&key=<API_KEY>
     body:
       encoding: US-ASCII
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Content-Type:
       - application/json; charset=UTF-8
@@ -104,6 +104,6 @@ http_interactions:
            ],
            "status" : "OK"
         }
-    http_version: 
+    http_version:
   recorded_at: Tue, 07 Aug 2018 08:36:57 GMT
 recorded_with: VCR 4.0.0

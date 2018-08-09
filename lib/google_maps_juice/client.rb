@@ -17,7 +17,7 @@ module GoogleMapsJuice
     end
 
     def get(endpoint, params)
-      full_params = (params || Hash.new).merge({ api_key: api_key })
+      full_params = (params || Hash.new).merge({ key: api_key })
       response = connection.get(
         path: "#{API_PATH}#{endpoint}",
         query: full_params

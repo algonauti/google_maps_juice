@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/geocode/json?address=via+Fragata+35%2C+76011+Bisceglie+BT+Italia&api_key=<API_KEY>&language=it
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=via+Fragata+35%2C+76011+Bisceglie+BT+Italia&key=<API_KEY>&language=it
     body:
       encoding: US-ASCII
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Content-Type:
       - application/json; charset=UTF-8
@@ -114,6 +114,6 @@ http_interactions:
            ],
            "status" : "OK"
         }
-    http_version: 
+    http_version:
   recorded_at: Tue, 07 Aug 2018 07:37:37 GMT
 recorded_with: VCR 4.0.0

@@ -7,7 +7,7 @@ RSpec.describe GoogleMapsJuice::Client, webmock: true do
     let(:endpoint) { '/my-endpoint' }
     let(:params) { { foo: 'bar', x: 123 } }
     let(:query_string) do
-      params.merge({ api_key: GoogleMapsJuice.config.api_key }).to_query
+      params.merge({ key: GoogleMapsJuice.config.api_key }).to_query
     end
     let(:url_pattern) { Regexp.new("#{base_url}#{endpoint}*") }
 

@@ -13,6 +13,7 @@ module GoogleMapsJuice
   autoload :Client, 'google_maps_juice/client'
   autoload :Endpoint, 'google_maps_juice/endpoint'
   autoload :Geocoding, 'google_maps_juice/geocoding'
+  autoload :Timezone, 'google_maps_juice/timezone'
 
   class Error < Exception; end
   class ApiLimitError < Exception; end

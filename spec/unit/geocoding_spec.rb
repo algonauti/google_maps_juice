@@ -3,12 +3,7 @@ require 'spec_helper'
 RSpec.describe GoogleMapsJuice::Geocoding do
   let(:client) { GoogleMapsJuice::Client.new }
   let(:geocoding) { GoogleMapsJuice::Geocoding.new(client) }
-  let(:base_url) { 'https://maps.googleapis.com/maps/api' }
   let(:endpoint) { '/geocode/json' }
-  let(:url_pattern) { Regexp.new("#{base_url}#{endpoint}*") }
-  let(:query_string) do
-    params.merge({ api_key: GoogleMapsJuice.config.api_key }).to_query
-  end
 
   describe '#geocode' do
 

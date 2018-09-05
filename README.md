@@ -132,6 +132,32 @@ Both `geocode` and `i_geocode` methods return a `GoogleMapsJuice::Geocoding::Res
 * `precision`: can be one of: `'street_number'`, `'route'`, `'locality'`, `'postal_code'`, `'administrative_area_level_1'`, `'country'` and represents the most-specific matching component
 
 
+## Timezone
+
+[Google's Timezone API](https://developers.google.com/maps/documentation/timezone/intro#Requests) returns the timezone of a given geographic location; it also accepts a timestamp, in order to determine whether DST should be applied or not.
+
+GoogleMapsJuice provides the `GoogleMapsJuice::Timezone.by_location` method. Compared to Google's raw API request, it provides simpler params and some validations, in order to avoid sending requests when they would fail for sure (and then save money!) - to learn more see `spec/unit/timezone_spec.rb`.
+
+**Accepted params:**
+
+* Both `latitude` and `longitude` are mandatory
+* `timestamp` is optional and defaults to `Time.now`
+* `language` is optional
+
+
+### Timezone response
+
+The `by_location` method returns a `GoogleMapsJuice::Timezone::Response`. It's a `Hash` representation of Google's JSON response. However, it also provides a few useful methods:
+
+* `timezone_id`: unique name as defined in [IANA Time Zone Database](https://www.iana.org/time-zones)
+
+* `timezone_name`: the long form name of the time zone
+
+* `raw_offset`: the offset from UTC in seconds
+
+* `dst_offset`: the offset for daylight-savings time in seconds
+
+
 ## Using multiple API keys
 
 When your application is going to use multiple API keys, you have two options:

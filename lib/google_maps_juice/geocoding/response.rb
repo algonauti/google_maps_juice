@@ -1,7 +1,7 @@
 require 'active_support/core_ext/hash/slice'
 
 module GoogleMapsJuice
-  class Response < GoogleMapsJuice::Endpoint::Response
+  class Geocoding::Response < GoogleMapsJuice::Endpoint::Response
 
     def latitude
       location['lat']

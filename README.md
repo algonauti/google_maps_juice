@@ -34,9 +34,7 @@ Or install it yourself as:
     $ gem install google_maps_juice
 
 
-## Usage
-
-### Configuration
+## Configuration
 
 You can set your Google API key with the following one-liner:
 
@@ -49,7 +47,7 @@ In a Rails application, that would typically go in an initializer.
 The above works when your application is going to use a single API key; if your use case is more complex, see the dedicated section below *Using multiple API keys*.
 
 
-### Error Handling
+## Error Handling
 
 If Google servers respond with a non-successful HTTP status code, i.e. `4xx` or `5xx`, a `GoogleMapsJuice::Error` is raised with a message of the form `'HTTP 503 - Error details as returned by the server'`.
 
@@ -60,9 +58,9 @@ API errors are also handled, based on the `status` attribute of Google's JSON re
 * `GoogleMapsJuice::Error` is raised when `status` is not `OK` with a message of the form `API <status> - <error_message>`
 
 
-### Geocoding
+## Geocoding
 
-#### Standard Geocoding
+### Standard Geocoding
 
 The simplest geocoding requests accept an address:
 
@@ -73,7 +71,7 @@ response = GoogleMapsJuice::Geocoding.geocode(address: '8955 Lantana Rd, Lake Wo
 Supported params are the ones accepted by Google's endpoint: `address`, `components`, `bounds`, `language`, `region`; at least one between `address` and `components` is required. Learn more [here](https://developers.google.com/maps/documentation/geocoding/intro#geocoding). `GoogleMapsJuice` will raise an `ArgumentError` if some unsupported param is passed, or when none of the required params are passed.
 
 
-#### Smart Geocoding
+### Smart Geocoding
 
 **Motivation**
 
@@ -121,7 +119,7 @@ As a consequence:
 * In the worst case, `i_geocode` will send 4 requests to Google API
 
 
-#### Geocoding Response
+### Geocoding Response
 
 Both `geocode` and `i_geocode` methods return a `GoogleMapsJuice::Geocoding::Response`. It's a `Hash` representation of Google's JSON response. However, it also provides many useful methods:
 
@@ -134,7 +132,33 @@ Both `geocode` and `i_geocode` methods return a `GoogleMapsJuice::Geocoding::Res
 * `precision`: can be one of: `'street_number'`, `'route'`, `'locality'`, `'postal_code'`, `'administrative_area_level_1'`, `'country'` and represents the most-specific matching component
 
 
-### Using multiple API keys
+## Timezone
+
+[Google's Timezone API](https://developers.google.com/maps/documentation/timezone/intro#Requests) returns the timezone of a given geographic location; it also accepts a timestamp, in order to determine whether DST should be applied or not.
+
+GoogleMapsJuice provides the `GoogleMapsJuice::Timezone.by_location` method. Compared to Google's raw API request, it provides simpler params and some validations, in order to avoid sending requests when they would fail for sure (and then save money!) - to learn more see `spec/unit/timezone_spec.rb`.
+
+**Accepted params:**
+
+* Both `latitude` and `longitude` are mandatory
+* `timestamp` is optional and defaults to `Time.now`
+* `language` is optional
+
+
+### Timezone response
+
+The `by_location` method returns a `GoogleMapsJuice::Timezone::Response`. It's a `Hash` representation of Google's JSON response. However, it also provides a few useful methods:
+
+* `timezone_id`: unique name as defined in [IANA Time Zone Database](https://www.iana.org/time-zones)
+
+* `timezone_name`: the long form name of the time zone
+
+* `raw_offset`: the offset from UTC in seconds
+
+* `dst_offset`: the offset for daylight-savings time in seconds
+
+
+## Using multiple API keys
 
 When your application is going to use multiple API keys, you have two options:
 

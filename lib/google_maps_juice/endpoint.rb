@@ -25,6 +25,34 @@ module GoogleMapsJuice
       msg += " - #{response.error_message}" if response.error_message.present?
     end
 
+    def validate_supported_params(params, supported_keys)
+      unsupported_params = params.keys.select do |key|
+        !supported_keys.include?(key.to_s)
+      end
+      if unsupported_params.present?
+        raise ArgumentError, "The following params are not supported: #{unsupported_params.join(', ')}"
+      end
+    end
+
+    def validate_required_params(params, required_keys, check_mode)
+      required_params_present = required_keys.send("#{check_mode}?") do |key|
+        params.keys.map(&:to_s).include?(key)
+      end
+      unless required_params_present
+        verb = check_mode == 'one' ? 'is' : 'are'
+        raise ArgumentError, "#{check_mode.capitalize} of the following params #{verb} required: #{required_keys.join(', ')}"
+      end
+    end
+
+
+    %w( any one all ).each do |check_mode|
+
+      define_method "validate_#{check_mode}_required_params" do |params, required_keys|
+        validate_required_params(params, required_keys, check_mode)
+      end
+
+    end
+
 
     class Response < Hash
 

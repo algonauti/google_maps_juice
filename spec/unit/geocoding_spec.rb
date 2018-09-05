@@ -39,7 +39,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
 
         it 'raises ArgumentError' do
           expect { subject }.to raise_error(ArgumentError,
-            'One of the following params is required: address, components')
+            'Any of the following params are required: address, components')
         end
       end
     end
@@ -136,7 +136,7 @@ RSpec.describe GoogleMapsJuice::Geocoding do
 
         it 'raises ArgumentError' do
           expect { subject }.to raise_error(ArgumentError,
-            'One of the following params is required: address, country')
+            'Any of the following params are required: address, country')
         end
       end
     end

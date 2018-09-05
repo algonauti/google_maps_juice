@@ -1,9 +1,9 @@
-require 'google_maps_juice/geocoding/response'
-
 module GoogleMapsJuice
   class Geocoding < Endpoint
 
     ENDPOINT = '/geocode'
+
+    autoload :Response, 'google_maps_juice/geocoding/response'
 
     class << self
       def geocode(params, api_key: GoogleMapsJuice.config.api_key)

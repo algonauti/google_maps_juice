@@ -44,11 +44,6 @@ http_interactions:
               {
                  "address_components" : [
                     {
-                       "long_name" : "32806",
-                       "short_name" : "32806",
-                       "types" : [ "postal_code" ]
-                    },
-                    {
                        "long_name" : "Orlando",
                        "short_name" : "Orlando",
                        "types" : [ "locality", "political" ]
@@ -67,6 +62,11 @@ http_interactions:
                        "long_name" : "United States",
                        "short_name" : "US",
                        "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "32806",
+                       "short_name" : "32806",
+                       "types" : [ "postal_code" ]
                     }
                  ],
                  "formatted_address" : "Orlando, FL 32806, USA",

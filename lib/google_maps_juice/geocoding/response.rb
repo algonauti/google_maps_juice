@@ -3,6 +3,13 @@ require 'active_support/core_ext/hash/slice'
 module GoogleMapsJuice
   class Geocoding::Response < GoogleMapsJuice::Endpoint::Response
 
+    class << self
+      def precisions
+        %w( street_number route postal_code locality administrative_area_level_1
+            administrative_area_level_2 administrative_area_level_3 country )
+      end
+    end
+
     def latitude
       location['lat']
     end
@@ -28,7 +35,11 @@ module GoogleMapsJuice
     end
 
     def precision
-      address_components&.first['types']&.first
+      self.class.precisions.find do |type|
+        address_components.any? do |comp|
+          comp['types'].include?(type)
+        end
+      end
     end
 
 

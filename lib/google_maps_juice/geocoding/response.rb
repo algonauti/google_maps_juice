@@ -46,6 +46,7 @@ module GoogleMapsJuice
     %w( street_number
         route
         locality
+        sublocality
         postal_code
         administrative_area_level_1
         administrative_area_level_2

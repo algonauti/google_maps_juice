@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Client for popular Google Maps API Services: Geocoding, Time Zones"
   spec.description   = "Put Google Maps APIs in a spin-dryer and drink their juice: Geocoding, Time Zones, ...and more upcoming!"
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/algonauti/google_maps_juice"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

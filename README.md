@@ -2,6 +2,8 @@
 
 **Drink Google Maps Services with ease!** :tropical_drink: :earth_americas:
 
+[![Build Status](https://travis-ci.org/algonauti/google_maps_juice.svg?branch=master)](https://travis-ci.org/algonauti/google_maps_juice)
+
 This gem aims at progressively covering a fair amount of those widely-used services that are part of the Google Maps Platform, such as: [Geocoding](https://developers.google.com/maps/documentation/geocoding/intro), [Time Zone](https://developers.google.com/maps/documentation/timezone/intro), [Directions](https://developers.google.com/maps/documentation/directions/intro), etc. with some key ideas:
 
 1. Allowing "standard" requests, meaning: sending the same params documented by Google.

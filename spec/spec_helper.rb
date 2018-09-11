@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear! if ENV['CI']
+
 require "bundler/setup"
 require "google_maps_juice"
 require 'dotenv/load'

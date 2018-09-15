@@ -199,7 +199,7 @@ All new endpoints' methods must return subclasses of `GoogleMapsJuice::Endpoint:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/google_maps_juice.
+Bug reports and pull requests are welcome on GitHub at https://github.com/algonauti/google_maps_juice.
 
 
 ## License

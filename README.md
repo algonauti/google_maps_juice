@@ -16,6 +16,7 @@ This gem aims at progressively covering a fair amount of those widely-used servi
 `GoogleMapsJuice` currently covers:
 
 * Geocoding
+* Time Zone
 
 Contributors are welcome!
 

@@ -129,7 +129,7 @@ response = GoogleMapsJuice::Geocoding.i_geocode(
 
 **How it works**
 
-On its 1st attempt, `i_geocode` sends all received params to Google's endpoint, properly formatted. If a `GoogleMapsJuice::ZeroResults` is raised, it removes a param and retries, until no error is raised. Params are removed in the following order:
+On its 1st attempt, `i_geocode` sends all received params to Google's endpoint, properly formatted. If a `GoogleMapsJuice::ZeroResults` is raised, it removes a param and retries until no error is raised. Params are removed in the following order:
 
 * `postal_code`
 * `address`
@@ -187,7 +187,7 @@ After checking out the repo, run `bin/setup` to install dependencies. Create a `
 
 Run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 
 ### Implementing a new endpoint

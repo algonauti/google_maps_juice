@@ -38,7 +38,7 @@ Or install it yourself as:
     $ gem install google_maps_juice
 
 
-## Configuration
+## Google API Key
 
 You can set your Google API key with the following one-liner:
 
@@ -48,7 +48,26 @@ GoogleMapsJuice.configure { |c| c.api_key = 'my-api-key' }`
 
 In a Rails application, that would typically go in an initializer.
 
-The above works when your application is going to use a single API key; if your use case is more complex, see the dedicated section below *Using multiple API keys*.
+
+### Multiple API keys
+
+If you need to use multiple API keys, you have two options:
+
+* a) pass an `api_key` named param to the endpoint class method, e.g.
+
+```ruby
+GoogleMapsJuice::Geocoding.geocode(params, api_key: 'my-api-key')
+```
+
+* b) create your own `GoogleMapsJuice::Client` instance(s) and use it to create your endpoint object(s), e.g.
+
+```ruby
+client = GoogleMapsJuice::Client.new(api_key: 'my-api-key')
+geocoding = GoogleMapsJuice::Geocoding.new(client)
+response = geocoding.geocode(params)
+```
+
+This is especially useful in some "hybrid" scenario, where an API key is shared by a group of requests, but another group uses a different key: a `client` object would then be instantiated and reused for each group.
 
 
 ## Error Handling
@@ -160,27 +179,6 @@ The `by_location` method returns a `GoogleMapsJuice::Timezone::Response`. It's a
 * `raw_offset`: the offset from UTC in seconds
 
 * `dst_offset`: the offset for daylight-savings time in seconds
-
-
-## Using multiple API keys
-
-When your application is going to use multiple API keys, you have two options:
-
-* a) pass an `api_key` named param to the endpoint class method, e.g.
-
-```ruby
-GoogleMapsJuice::Geocoding.geocode(params, api_key: 'my-api-key')
-```
-
-* b) create your own `GoogleMapsJuice::Client` instance(s) and use it to create your endpoint object(s), e.g.
-
-```ruby
-client = GoogleMapsJuice::Client.new(api_key: 'my-api-key')
-geocoding = GoogleMapsJuice::Geocoding.new(client)
-response = geocoding.geocode(params)
-```
-
-This is especially useful in some "hybrid" scenario, where an API key is shared by a group of requests, but another group uses a different key: a `client` object would then be instantiated and reused for each group.
 
 
 ## Development

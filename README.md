@@ -136,9 +136,9 @@ Both `geocode` and `i_geocode` methods return a `GoogleMapsJuice::Geocoding::Res
 * `precision`: can be one of: `'street_number'`, `'route'`, `'locality'`, `'postal_code'`, `'administrative_area_level_1'`, `'country'` and represents the most-specific matching component
 
 
-## Timezone
+## Time Zone
 
-[Google's Timezone API](https://developers.google.com/maps/documentation/timezone/intro#Requests) returns the timezone of a given geographic location; it also accepts a timestamp, in order to determine whether DST should be applied or not.
+[Google's Time Zone API](https://developers.google.com/maps/documentation/timezone/intro#Requests) returns the time zone of a given geographic location; it also accepts a timestamp, in order to determine whether DST should be applied or not.
 
 GoogleMapsJuice provides the `GoogleMapsJuice::Timezone.by_location` method. Compared to Google's raw API request, it provides simpler params and some validations, in order to avoid sending requests when they would fail for sure (and then save money!) - to learn more see `spec/unit/timezone_spec.rb`.
 
@@ -149,7 +149,7 @@ GoogleMapsJuice provides the `GoogleMapsJuice::Timezone.by_location` method. Com
 * `language` is optional
 
 
-### Timezone response
+### Time Zone Response
 
 The `by_location` method returns a `GoogleMapsJuice::Timezone::Response`. It's a `Hash` representation of Google's JSON response. However, it also provides a few useful methods:
 

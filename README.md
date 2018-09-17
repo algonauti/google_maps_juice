@@ -16,6 +16,7 @@ This gem aims at progressively covering a fair amount of those widely-used servi
 `GoogleMapsJuice` currently covers:
 
 * Geocoding
+* Time Zone
 
 Contributors are welcome!
 
@@ -37,7 +38,7 @@ Or install it yourself as:
     $ gem install google_maps_juice
 
 
-## Configuration
+## Google API Key
 
 You can set your Google API key with the following one-liner:
 
@@ -47,7 +48,26 @@ GoogleMapsJuice.configure { |c| c.api_key = 'my-api-key' }`
 
 In a Rails application, that would typically go in an initializer.
 
-The above works when your application is going to use a single API key; if your use case is more complex, see the dedicated section below *Using multiple API keys*.
+
+### Multiple API keys
+
+If you need to use multiple API keys, you have two options:
+
+* a) pass an `api_key` named param to the endpoint class method, e.g.
+
+```ruby
+GoogleMapsJuice::Geocoding.geocode(params, api_key: 'my-api-key')
+```
+
+* b) create your own `GoogleMapsJuice::Client` instance(s) and use it to create your endpoint object(s), e.g.
+
+```ruby
+client = GoogleMapsJuice::Client.new(api_key: 'my-api-key')
+geocoding = GoogleMapsJuice::Geocoding.new(client)
+response = geocoding.geocode(params)
+```
+
+This is especially useful in some "hybrid" scenario, where an API key is shared by a group of requests, but another group uses a different key: a `client` object would then be instantiated and reused for each group.
 
 
 ## Error Handling
@@ -109,7 +129,7 @@ response = GoogleMapsJuice::Geocoding.i_geocode(
 
 **How it works**
 
-On its 1st attempt, `i_geocode` sends all received params to Google's endpoint, properly formatted. If a `GoogleMapsJuice::ZeroResults` is raised, it removes a param and retries, until no error is raised. Params are removed in the following order:
+On its 1st attempt, `i_geocode` sends all received params to Google's endpoint, properly formatted. If a `GoogleMapsJuice::ZeroResults` is raised, it removes a param and retries until no error is raised. Params are removed in the following order:
 
 * `postal_code`
 * `address`
@@ -135,9 +155,9 @@ Both `geocode` and `i_geocode` methods return a `GoogleMapsJuice::Geocoding::Res
 * `precision`: can be one of: `'street_number'`, `'route'`, `'locality'`, `'postal_code'`, `'administrative_area_level_1'`, `'country'` and represents the most-specific matching component
 
 
-## Timezone
+## Time Zone
 
-[Google's Timezone API](https://developers.google.com/maps/documentation/timezone/intro#Requests) returns the timezone of a given geographic location; it also accepts a timestamp, in order to determine whether DST should be applied or not.
+[Google's Time Zone API](https://developers.google.com/maps/documentation/timezone/intro#Requests) returns the time zone of a given geographic location; it also accepts a timestamp, in order to determine whether DST should be applied or not.
 
 GoogleMapsJuice provides the `GoogleMapsJuice::Timezone.by_location` method. Compared to Google's raw API request, it provides simpler params and some validations, in order to avoid sending requests when they would fail for sure (and then save money!) - to learn more see `spec/unit/timezone_spec.rb`.
 
@@ -148,7 +168,7 @@ GoogleMapsJuice provides the `GoogleMapsJuice::Timezone.by_location` method. Com
 * `language` is optional
 
 
-### Timezone response
+### Time Zone Response
 
 The `by_location` method returns a `GoogleMapsJuice::Timezone::Response`. It's a `Hash` representation of Google's JSON response. However, it also provides a few useful methods:
 
@@ -161,34 +181,13 @@ The `by_location` method returns a `GoogleMapsJuice::Timezone::Response`. It's a
 * `dst_offset`: the offset for daylight-savings time in seconds
 
 
-## Using multiple API keys
-
-When your application is going to use multiple API keys, you have two options:
-
-* a) pass an `api_key` named param to the endpoint class method, e.g.
-
-```ruby
-GoogleMapsJuice::Geocoding.geocode(params, api_key: 'my-api-key')
-```
-
-* b) create your own `GoogleMapsJuice::Client` instance(s) and use it to create your endpoint object(s), e.g.
-
-```ruby
-client = GoogleMapsJuice::Client.new(api_key: 'my-api-key')
-geocoding = GoogleMapsJuice::Geocoding.new(client)
-response = geocoding.geocode(params)
-```
-
-This is especially useful in some "hybrid" scenario, where an API key is shared by a group of requests, but another group uses a different key: a `client` object would then be instantiated and reused for each group.
-
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Create a `.env` file and save your Google API key there; if you want to use a different key for testing, put it in `.env.test` and it will override the one in `.env`.
 
 Run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 
 ### Implementing a new endpoint
@@ -200,7 +199,7 @@ All new endpoints' methods must return subclasses of `GoogleMapsJuice::Endpoint:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/google_maps_juice.
+Bug reports and pull requests are welcome on GitHub at https://github.com/algonauti/google_maps_juice.
 
 
 ## License

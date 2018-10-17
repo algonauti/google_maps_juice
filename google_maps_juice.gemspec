@@ -6,8 +6,8 @@ require "google_maps_juice/version"
 Gem::Specification.new do |spec|
   spec.name          = "google_maps_juice"
   spec.version       = GoogleMapsJuice::VERSION
-  spec.authors       = ["Davide Papagni"]
-  spec.email         = ["davide@algonauti.com"]
+  spec.authors       = ["Algonauti srl"]
+  spec.email         = ["info@algonauti.com"]
 
   spec.summary       = "Client for popular Google Maps API Services: Geocoding, Time Zones"
   spec.description   = "Put Google Maps APIs in a spin-dryer and drink their juice: Geocoding, Time Zones, ...and more upcoming!"

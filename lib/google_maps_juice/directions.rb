@@ -33,7 +33,7 @@ module GoogleMapsJuice
     end
 
     def validate_geo_coordinate(params)
-      raise ArgumentError, 'String argument expected' unless params.values.each.is_a?(String)
+      raise ArgumentError, 'String argument expected' unless params.values.all?(String)
 
       geocoords = params.values.map { |x| x.split(',') }.flatten
       geocoords.map! { |x| Float(x).round(7) }

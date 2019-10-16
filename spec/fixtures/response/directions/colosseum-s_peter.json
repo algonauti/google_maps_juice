@@ -1,0 +1,562 @@
+{
+  "geocoded_waypoints": [
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJrRMgU7ZhLxMRxAOFkC7I8Sg",
+      "types": [
+        "establishment",
+        "point_of_interest",
+        "tourist_attraction"
+      ]
+    },
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJwyrrs2dgLxMR5U-1KUpa5hs",
+      "types": [
+        "street_address"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "bounds": {
+        "northeast": {
+          "lat": 41.9016488,
+          "lng": 12.4921921
+        },
+        "southwest": {
+          "lat": 41.885123,
+          "lng": 12.4583003
+        }
+      },
+      "copyrights": "Map data ©2019 Google",
+      "legs": [
+        {
+          "distance": {
+            "text": "4.5 km",
+            "value": 4469
+          },
+          "duration": {
+            "text": "13 mins",
+            "value": 792
+          },
+          "end_address": "Piazza Pio Xii, 1, 00193 Roma RM, Italy",
+          "end_location": {
+            "lat": 41.9016488,
+            "lng": 12.4583003
+          },
+          "start_address": "Piazza del Colosseo, 1, 00184 Roma RM, Italy",
+          "start_location": {
+            "lat": 41.8892732,
+            "lng": 12.4921921
+          },
+          "steps": [
+            {
+              "distance": {
+                "text": "0.2 km",
+                "value": 181
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 24
+              },
+              "end_location": {
+                "lat": 41.8886001,
+                "lng": 12.4903215
+              },
+              "html_instructions": "Head <b>west</b> on <b>Via Celio Vibenna</b> toward <b>Piazza del Arco di Costantino</b>",
+              "polyline": {
+                "points": "}nt~Fe{fkAAV?f@@^@TDd@?@BPDPFTLZJVNVRXBDTXRV"
+              },
+              "start_location": {
+                "lat": 41.8892732,
+                "lng": 12.4921921
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.4 km",
+                "value": 377
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 56
+              },
+              "end_location": {
+                "lat": 41.8852951,
+                "lng": 12.4893026
+              },
+              "html_instructions": "<b>Via Celio Vibenna</b> turns slightly <b>left</b> and becomes <b>Via di San Gregorio</b>",
+              "polyline": {
+                "points": "wjt~FoofkANHHBJDTFZFx@NNDPDPDH@PDb@HZFRBD@VFB@TD|@Pj@Lh@Jh@Jj@L^FZF"
+              },
+              "start_location": {
+                "lat": 41.8886001,
+                "lng": 12.4903215
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.6 km",
+                "value": 620
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 87
+              },
+              "end_location": {
+                "lat": 41.8881916,
+                "lng": 12.4832384
+              },
+              "html_instructions": "Turn <b>right</b> onto <b>Via dei Cerchi</b>",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "cvs~FcifkAJPFRFTDT@RcAvBWj@i@lA]v@w@`BKTc@bAYn@Yl@i@rAGLUf@A@c@`AYn@CD]t@_@v@ILQ`@Wf@Ud@Q`@"
+              },
+              "start_location": {
+                "lat": 41.8852951,
+                "lng": 12.4893026
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.1 km",
+                "value": 137
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 38
+              },
+              "end_location": {
+                "lat": 41.8872258,
+                "lng": 12.4822184
+              },
+              "html_instructions": "Turn <b>left</b> onto <b>Via dell'Ara Massima di Ercole</b>",
+              "maneuver": "turn-left",
+              "polyline": {
+                "points": "eht~FgcekAVTf@h@PNz@~@p@z@"
+              },
+              "start_location": {
+                "lat": 41.8881916,
+                "lng": 12.4832384
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "45 m",
+                "value": 45
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 12
+              },
+              "end_location": {
+                "lat": 41.8875241,
+                "lng": 12.4818526
+              },
+              "html_instructions": "Turn <b>right</b> onto <b>Via della Greca</b>",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "ebt~F{|dkAm@t@KR"
+              },
+              "start_location": {
+                "lat": 41.8872258,
+                "lng": 12.4822184
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "82 m",
+                "value": 82
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 26
+              },
+              "end_location": {
+                "lat": 41.88803679999999,
+                "lng": 12.4811533
+              },
+              "html_instructions": "Continue straight to stay on <b>Via della Greca</b>",
+              "maneuver": "straight",
+              "polyline": {
+                "points": "_dt~FqzdkAURKJOT]n@Wd@"
+              },
+              "start_location": {
+                "lat": 41.8875241,
+                "lng": 12.4818526
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "90 m",
+                "value": 90
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 27
+              },
+              "end_location": {
+                "lat": 41.8886441,
+                "lng": 12.4804459
+              },
+              "html_instructions": "Continue onto <b>Largo Amerigo Petrucci</b>",
+              "polyline": {
+                "points": "ggt~FevdkAQZCBMNOJYTA?CFGJMRMP"
+              },
+              "start_location": {
+                "lat": 41.88803679999999,
+                "lng": 12.4811533
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.1 km",
+                "value": 108
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 17
+              },
+              "end_location": {
+                "lat": 41.8895857,
+                "lng": 12.4801606
+              },
+              "html_instructions": "Turn <b>right</b> onto <b>Lungotevere Aventino</b>",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "_kt~FyqdkAK@]B[B[FYFKBOFGBSHID"
+              },
+              "start_location": {
+                "lat": 41.8886441,
+                "lng": 12.4804459
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.2 km",
+                "value": 242
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 34
+              },
+              "end_location": {
+                "lat": 41.8913812,
+                "lng": 12.4785865
+              },
+              "html_instructions": "Continue onto <b>Lungotevere dei Pierleoni</b><div style=\"font-size:0.9em\">Entering toll zone</div>",
+              "polyline": {
+                "points": "}pt~F_pdkAKBQHGBYJ_@RSLWP?@_@Vy@p@[VC@u@`AEFGJABYf@"
+              },
+              "start_location": {
+                "lat": 41.8895857,
+                "lng": 12.4801606
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.3 km",
+                "value": 343
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 63
+              },
+              "end_location": {
+                "lat": 41.8917832,
+                "lng": 12.4746437
+              },
+              "html_instructions": "Continue onto <b>Lungotevere de' Cenci</b>",
+              "polyline": {
+                "points": "c|t~FefdkAILWf@Sf@W|@O`AOxBAnAPzDDfAFhB"
+              },
+              "start_location": {
+                "lat": 41.8913812,
+                "lng": 12.4785865
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.3 km",
+                "value": 312
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 52
+              },
+              "end_location": {
+                "lat": 41.8927341,
+                "lng": 12.4713105
+              },
+              "html_instructions": "Continue onto <b>Lungotevere dei Vallati</b>",
+              "polyline": {
+                "points": "s~t~FomckA@\\D~@?\\@VAb@Aj@Cf@E\\Gf@GZGXQl@GPEHKVaAhBORc@p@"
+              },
+              "start_location": {
+                "lat": 41.8917832,
+                "lng": 12.4746437
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.6 km",
+                "value": 571
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 67
+              },
+              "end_location": {
+                "lat": 41.8964541,
+                "lng": 12.4665528
+              },
+              "html_instructions": "Continue onto <b>Lungotevere dei Tebaldi</b>",
+              "polyline": {
+                "points": "qdu~FuxbkAW^A@m@z@e@n@U^KRuAhBQXwAnBmAvAa@j@eCnDm@z@mAbBIJ[`@"
+              },
+              "start_location": {
+                "lat": 41.8927341,
+                "lng": 12.4713105
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.4 km",
+                "value": 425
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 65
+              },
+              "end_location": {
+                "lat": 41.899799,
+                "lng": 12.464241
+              },
+              "html_instructions": "Continue onto <b>Lungotevere dei Sangallo</b>",
+              "polyline": {
+                "points": "y{u~F}zakAm@|@KLORUTSNq@`@aAl@ULq@`@YPULQJkC~AIHIB]TKFYFQ@O@e@B"
+              },
+              "start_location": {
+                "lat": 41.8964541,
+                "lng": 12.4665528
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.1 km",
+                "value": 120
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 34
+              },
+              "end_location": {
+                "lat": 41.9007314,
+                "lng": 12.4648744
+              },
+              "html_instructions": "Continue straight onto <b>Lungotevere dei Fiorentini</b>",
+              "maneuver": "straight",
+              "polyline": {
+                "points": "wpv~FolakAYEa@Ik@M][IKOUYa@"
+              },
+              "start_location": {
+                "lat": 41.899799,
+                "lng": 12.464241
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.1 km",
+                "value": 127
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 37
+              },
+              "end_location": {
+                "lat": 41.9015424,
+                "lng": 12.4637941
+              },
+              "html_instructions": "Turn <b>left</b> onto <b>Ponte Vittorio Emanuele II</b><div style=\"font-size:0.9em\">Leaving toll zone</div>",
+              "maneuver": "turn-left",
+              "polyline": {
+                "points": "qvv~FmpakAORu@dA?@s@dAU\\KLEH"
+              },
+              "start_location": {
+                "lat": 41.9007314,
+                "lng": 12.4648744
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.2 km",
+                "value": 226
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 53
+              },
+              "end_location": {
+                "lat": 41.8997924,
+                "lng": 12.4625573
+              },
+              "html_instructions": "Turn <b>left</b> onto <b>Lungotevere in Sassia</b>",
+              "maneuver": "turn-left",
+              "polyline": {
+                "points": "s{v~FuiakAT`@HHFHFHHFX^JLLJ@BRLTLRHXJJBj@LXFPDRBJDHDBDBF"
+              },
+              "start_location": {
+                "lat": 41.9015424,
+                "lng": 12.4637941
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "28 m",
+                "value": 28
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 5
+              },
+              "end_location": {
+                "lat": 41.8997196,
+                "lng": 12.46223
+              },
+              "html_instructions": "Turn <b>right</b> onto <b>Galleria Principe Amedeo Savoia Aosta</b>",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "upv~F_bakABTHj@"
+              },
+              "start_location": {
+                "lat": 41.8997924,
+                "lng": 12.4625573
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "11 m",
+                "value": 11
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 2
+              },
+              "end_location": {
+                "lat": 41.8997597,
+                "lng": 12.4621051
+              },
+              "html_instructions": "Turn <b>right</b> onto <b>Via di Porta Santo Spirito</b>",
+              "maneuver": "turn-right",
+              "polyline": {
+                "points": "gpv~F}_akAGV"
+              },
+              "start_location": {
+                "lat": 41.8997196,
+                "lng": 12.46223
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "71 m",
+                "value": 71
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 16
+              },
+              "end_location": {
+                "lat": 41.9002868,
+                "lng": 12.4616292
+              },
+              "html_instructions": "Slight <b>right</b> to stay on <b>Via di Porta Santo Spirito</b>",
+              "maneuver": "turn-slight-right",
+              "polyline": {
+                "points": "opv~Fe_akAIRURe@\\KFWP"
+              },
+              "start_location": {
+                "lat": 41.8997597,
+                "lng": 12.4621051
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.2 km",
+                "value": 152
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 34
+              },
+              "end_location": {
+                "lat": 41.9014701,
+                "lng": 12.4607148
+              },
+              "html_instructions": "Continue onto <b>Via dei Penitenzieri</b>",
+              "polyline": {
+                "points": "ysv~Fe|`kAYPABGDMJMHe@Zi@`@UNeAv@"
+              },
+              "start_location": {
+                "lat": 41.9002868,
+                "lng": 12.4616292
+              },
+              "travel_mode": "DRIVING"
+            },
+            {
+              "distance": {
+                "text": "0.2 km",
+                "value": 201
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 43
+              },
+              "end_location": {
+                "lat": 41.9016488,
+                "lng": 12.4583003
+              },
+              "html_instructions": "<b>Via dei Penitenzieri</b> turns <b>left</b> and becomes <b>Borgo Santo Spirito</b>",
+              "polyline": {
+                "points": "e{v~Fmv`kA?FATG|CCj@KdCCl@Ap@CR"
+              },
+              "start_location": {
+                "lat": 41.9014701,
+                "lng": 12.4607148
+              },
+              "travel_mode": "DRIVING"
+            }
+          ],
+          "traffic_speed_entry": [],
+          "via_waypoint": []
+        }
+      ],
+      "overview_polyline": {
+        "points": "}nt~Fe{fkA@tBNjATp@Zn@`ApAXL`@LvBb@~Cl@bHtAZFJPNh@Fh@{AbDkC|FaCtF_D|GiA|BQ`@VTx@x@lBzBy@hAa@^m@dA{@tAo@h@U^MPK@y@Fu@Nc@N{@\\aAb@kAx@uAhAy@bAi@~@a@t@k@dBO`AOxBAnAPzDLpDF|A@t@CnAIdAObAg@bBmA`Cs@dAmBlCa@r@gBbCwAnBmAvAgDzEaDlEy@jAe@h@eAp@wAz@sBlA}DbCe@Na@Be@BYEmAWg@g@i@w@yB`Da@j@EHT`@PRPPt@|@h@Zl@TbB^^HLJF\\Hj@GVIRURq@d@{@l@kBrA{AfAA\\KhEOrDEdA"
+      },
+      "summary": "Via dei Cerchi",
+      "warnings": [],
+      "waypoint_order": []
+    }
+  ],
+  "status": "OK"
+}

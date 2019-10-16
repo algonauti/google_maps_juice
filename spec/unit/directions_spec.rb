@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 ROME = '12.496365,41.902783'
-BARI = '16.871871,41.117143'
-SIDNEY = '151.206990,-33.867487'
+COLOSSEUM = '41.890209,12.492231'
+SAINTPETER = '41.902270,12.457540'
+SIDNEY = '-33.867487,151.206990'
 
 # TODO: specs of validate_geo_coordinate and validate_location_params
-
+# TODO: cover the remaining response cases
 RSpec.describe GoogleMapsJuice::Directions do
   let(:client) { GoogleMapsJuice::Client.new }
   let(:directions) { GoogleMapsJuice::Directions.new(client) }
@@ -27,7 +30,7 @@ RSpec.describe GoogleMapsJuice::Directions do
       end
 
       context 'when some unsupported param is passed' do
-        let(:params) { { origin:  BARI, foo: 'hey', bar: 'man' } }
+        let(:params) { { origin:  ROME, foo: 'hey', bar: 'man' } }
 
         it 'raises ArgumentError' do
           expect { subject }.to raise_error(
@@ -37,16 +40,40 @@ RSpec.describe GoogleMapsJuice::Directions do
         end
       end
 
+      # TODO
       context 'when none of the required params is passed' do
         let(:params) { { region: 'US' } }
 
         it 'raises ArgumentError' do
           expect { subject }.to raise_error(
             ArgumentError,
-            'Any of the following params are required: address, components'
+            'The following params are not supported: region'
           )
         end
       end
+
+      context 'when wrong geo-coordinate is passed' do
+        let(:params) { { origin: '0.0000000,0.0000000' } }
+
+        it 'raises ArgumentError' do
+          expect { subject }.to raise_error(
+            ArgumentError,
+            'Wrong geo-coordinates'
+          )
+        end
+      end
+
+      context 'when no argument passed' do
+        let(:params) { {} }
+
+        it 'raises ArgumentError' do
+          expect { subject }.to raise_error(
+            ArgumentError,
+            'Any of the following params are required: origin, destination'
+          )
+        end
+      end
+
     end
 
     context 'with good params' do
@@ -54,63 +81,81 @@ RSpec.describe GoogleMapsJuice::Directions do
         expect(client).to receive(:get).with(endpoint, params).and_return(response)
       end
 
-      context 'rome to bari geo-coordinates' do
-        let(:response) { response_fixture('directions/rome_to_bari') }
+      context 'Rome, from Colosseum to Saint Peter' do
+        let(:response) { response_fixture('directions/colosseum-s_peter') }
 
         context 'with right geo-coordinates' do
-          let(:params) { {
-            origin: ROME,
-            destination: BARI
-          } }
+          let(:params) do
+            {
+              origin: COLOSSEUM,
+              destination: SAINTPETER
+            }
+          end
 
           it 'returns one or more routes' do
-            expect_rome_to_bari_result(subject)
+            expect_colosseum_to_s_peter_result(subject)
           end
         end
       end
 
-      context 'rome to sidney' do
-        let(:response) { response_fixture('geocoding/rome_to_sidney') }
+      context 'Rome, from Colosseum to Colosseum' do
+        let(:response) { response_fixture('directions/colosseum-colosseum') }
+
+        context 'with same geo-coordinates' do
+          let(:params) do
+            {
+              origin: COLOSSEUM,
+              destination: COLOSSEUM
+            }
+          end
+
+          it 'returns single route composed of one leg with one step of 1m and 1min' do
+            expect_colosseum_to_colosseum_result(subject)
+          end
+        end
+      end
+
+      context 'from Rome to Sidney' do
+        let(:response) { response_fixture('directions/rome-sydney') }
 
         context 'with right geo-cordinates' do
-          let(:params) { {
-            origin: ROME,
-            destination: SIDNEY
-          } }
+          let(:params) do
+            {
+              origin: ROME,
+              destination: SIDNEY
+            }
+          end
 
-          it 'returns no route result' do
-            expect_rome_to_sidney_result(subject)
+          it 'raises ZeroResults' do
+            expect { subject }.to raise_error(GoogleMapsJuice::ZeroResults)
           end
         end
       end
     end
   end
 
-  def expect_rome_to_bari_result(result)
+  def expect_colosseum_to_s_peter_result(result)
     expect(result).to be_a GoogleMapsJuice::Directions::Response
+    expect(result.routes).to be_a Array
     expect(result.routes.size).to be > 0
-    expect(result.routes.first.summary).to eq '...'
-    expect(result.routes.first.distance).to eq '...'
-    expect(result.routes.first.duration).to eq '...'
-    expect(result.routes.first.start_location).to eq '...'
-    expect(result.routes.first.end_location).to eq '...'
-    expect(result.routes.first.start_address).to eq '...'
-    expect(result.routes.first.end_address).to eq '...'
-    expect(result.routes.first.legs.size).to be > 0
-    expect(result.routes.first.steps.size).to be > 0
+    first_route = result.first
+    expect(first_route).to be_a GoogleMapsJuice::Directions::Response::Route
+    expect(first_route.summary).to eq 'Via dei Cerchi'
+  end
+
+  def expect_colosseum_to_colosseum_result(result)
+    expect(result).to be_a GoogleMapsJuice::Directions::Response
+    expect(result.routes).to be_a Array
+    expect(result.routes.size).to be 1
+    first_route = result.first
+    expect(first_route).to be_a GoogleMapsJuice::Directions::Response::Route
+    expect(first_route.summary).to eq 'Via Celio Vibenna'
   end
 
   def expect_rome_to_sidney_result(result)
     expect(result).to be_a GoogleMapsJuice::Directions::Response
-    expect(result.routes.size).to eq 0
-    expect(result.routes.first.summary).to be nil
-    expect(result.routes.first.distance).to be nil
-    expect(result.routes.first.duration).to be nil
-    expect(result.routes.first.start_location).to be nil
-    expect(result.routes.first.end_location).to be nil
-    expect(result.routes.first.start_address).to be nil
-    expect(result.routes.first.end_address).to be nil
-    expect(result.routes.first.legs.size).to be nil
-    expect(result.routes.first.steps.size).to be nil
+    expect(result['status']).to eq 'ZERO_RESULTS'
+    expect(result['routes']).to be Array
+    expect(result['routes'].size).to be 0
   end
 end

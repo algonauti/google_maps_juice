@@ -7,8 +7,7 @@ COLOSSEUM = '41.890209,12.492231'
 SAINTPETER = '41.902270,12.457540'
 SIDNEY = '-33.867487,151.206990'
 
-# TODO: specs of validate_geo_coordinate and validate_location_params
-# TODO: cover the remaining response cases
+# TODO: cover the remaining contexts
 RSpec.describe GoogleMapsJuice::Directions do
   let(:client) { GoogleMapsJuice::Client.new }
   let(:directions) { GoogleMapsJuice::Directions.new(client) }
@@ -40,8 +39,7 @@ RSpec.describe GoogleMapsJuice::Directions do
         end
       end
 
-      # TODO
-      context 'when none of the required params is passed' do
+      context 'when some of the required params is not passed' do
         let(:params) { { region: 'US' } }
 
         it 'raises ArgumentError' do

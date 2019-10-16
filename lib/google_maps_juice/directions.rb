@@ -42,10 +42,12 @@ module GoogleMapsJuice
     end
 
     def validate_location_params(params)
-      if params[0].abs > 90 || params[2].abs > 90
+      latitudes = params[0], params[2]
+      if latitudes.any? { |l| l.abs > 90 }
         raise ArgumentError, 'Wrong latitude value'
       end
-      if params[1].abs > 180 || params[3].abs > 180
+      longitudes = params[1], params[3]
+      if longitudes.any? { |l| l.abs > 180 }
         raise ArgumentError, 'Wrong longitude value'
       end
     end

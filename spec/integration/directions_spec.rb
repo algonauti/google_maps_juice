@@ -11,7 +11,7 @@ RSpec.describe GoogleMapsJuice::Directions do
   describe '.find' do
     subject { described_class.find(params) }
 
-    context 'full match on address', vcr: {
+    context 'when distinct and valid geo-coordinates passed', vcr: {
       cassette_name: 'directions/find/valid-coordinates'
     } do
       let(:params) { { origin: COLOSSEUM, destination: SAINTPETER } }
@@ -26,7 +26,7 @@ RSpec.describe GoogleMapsJuice::Directions do
       end
     end
 
-    context 'wrong parameter passed', vcr: {
+    context 'when wrong parameter passed', vcr: {
       cassette_name: 'directions/find/wrong-parameter'
     } do
       let(:params) { { address: 'not a geo-coordinate value' } }

@@ -8,11 +8,11 @@ SAINTPETER = '41.902270,12.457540'
 SIDNEY = '-33.867487,151.206990'
 
 RSpec.describe GoogleMapsJuice::Directions do
-  describe '.directions' do
-    subject { described_class.directions(params) }
+  describe '.find' do
+    subject { described_class.find(params) }
 
     context 'full match on address', vcr: {
-      cassette_name: 'directions/directions/valid-coordinates'
+      cassette_name: 'directions/find/valid-coordinates'
     } do
       let(:params) { { origin: COLOSSEUM, destination: SAINTPETER } }
 
@@ -27,7 +27,7 @@ RSpec.describe GoogleMapsJuice::Directions do
     end
 
     context 'wrong parameter passed', vcr: {
-      cassette_name: 'directions/directions/wrong-parameter'
+      cassette_name: 'directions/find/wrong-parameter'
     } do
       let(:params) { { address: 'not a geo-coordinate value' } }
 
@@ -37,7 +37,7 @@ RSpec.describe GoogleMapsJuice::Directions do
     end
 
     context 'when valid origin and directions but no route', vcr: {
-      cassette_name: 'directions/directions/not-valid-route'
+      cassette_name: 'directions/find/not-valid-route'
     } do
       let(:params) do
         {
@@ -52,7 +52,7 @@ RSpec.describe GoogleMapsJuice::Directions do
     end
 
     context 'when no parameters passed', vcr: {
-      cassette_name: 'directions/directions/no-parameters'
+      cassette_name: 'directions/find/no-parameters'
     } do
       let(:params) do
         {}
@@ -64,7 +64,7 @@ RSpec.describe GoogleMapsJuice::Directions do
     end
 
     context 'when same origin and destination passed', vcr: {
-      cassette_name: 'directions/directions/same-origin-destination'
+      cassette_name: 'directions/find/same-origin-destination'
     } do
       let(:params) do
         {

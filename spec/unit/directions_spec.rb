@@ -15,7 +15,7 @@ RSpec.describe GoogleMapsJuice::Directions do
   let(:endpoint) { '/directions/json' }
 
   describe '#directions' do
-    subject { directions.directions(params) }
+    subject { directions.find(params) }
 
     context 'with bad params' do
       context 'when params is not a Hash' do

@@ -6,23 +6,22 @@ module GoogleMapsJuice
     autoload :Response, 'google_maps_juice/directions/response'
 
     class << self
-      def directions(params, api_key: GoogleMapsJuice.config.api_key)
+      def find(params, api_key: GoogleMapsJuice.config.api_key)
         client = GoogleMapsJuice::Client.new(api_key: api_key)
-        new(client).directions(params)
+        new(client).find(params)
       end
     end
 
-    def directions(params)
-      validate_directions_params(params)
+    def find(params)
+      validate_find_params(params)
       response_text = @client.get("#{ENDPOINT}/json", params)
       response = JSON.parse(response_text, object_class: Response)
       detect_errors(response)
     end
 
-    def validate_directions_params(params)
+    def validate_find_params(params)
       raise ArgumentError, 'Hash argument expected' unless params.is_a?(Hash)
 
-      # latitude longitude
       supported_keys = %w[origin destination]
       validate_supported_params(params, supported_keys)
 

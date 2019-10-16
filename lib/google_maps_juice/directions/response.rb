@@ -1,6 +1,6 @@
-require 'active_support/core_ext/hash/slice'
+# frozen_string_literal: true
 
-# TODO: improve handling of legs and steps
+require 'active_support/core_ext/hash/slice'
 
 module GoogleMapsJuice
   class Directions::Response < GoogleMapsJuice::Endpoint::Response
@@ -17,58 +17,46 @@ module GoogleMapsJuice
     end
 
     class Route
-      attr_reader :route
+      attr_reader :route, :first_leg
       def initialize(route)
         @route = route
-      end
-=begin
-      def initialize(params)
-        @summary = route['summary']
-        @legs = route['legs']
-        @step = route['legs']['steps']
-        @duration = route['duration']
-        @distance = route['distance']
-        @start_location = route['start_location']
-        @end_location = route['end_location']
-        @start_address = route['start_address']
-        @end_address = route['end_address']
-      end
-=end
-
-      def summary
-        route[:summary]
+        @first_leg = route['legs'].first
       end
 
       def legs
-        route[:legs]
+        route['legs']
+      end
+
+      def summary
+        route['summary']
       end
 
       def steps
-        route.dig[:legs, :steps]
+        first_leg['steps']
       end
 
       def duration
-        route[:duration]
+        first_leg['duration']
       end
 
       def distance
-        route[:distance]
+        first_leg['distance']
       end
 
       def start_location
-        route[:start_location].to_s
+        first_leg['start_location'].to_s
       end
 
       def end_location
-        route[:end_location].to_s
+        first_leg['end_location'].to_s
       end
 
       def start_address
-        route[:start_address]
+        first_leg['start_address']
       end
 
       def end_address
-        route[:end_address]
+        first_leg['end_address']
       end
     end
   end

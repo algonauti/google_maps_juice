@@ -139,6 +139,18 @@ RSpec.describe GoogleMapsJuice::Directions do
     first_route = result.first
     expect(first_route).to be_a GoogleMapsJuice::Directions::Response::Route
     expect(first_route.summary).to eq 'Via dei Cerchi'
+    expect(first_route.legs).to be_a Array
+    expect(first_route.legs.size).to be >= 1
+    expect(first_route.duration['text']).to eq '13 mins'
+    expect(first_route.distance['text']).to eq '4.5 km'
+    expect(first_route.steps).to be_a Array
+    expect(first_route.steps.size).to be >= 1
+    expect(first_route.start_location['lat']).to eq 41.8892732
+    expect(first_route.start_location['lng']).to eq 12.4921921
+    expect(first_route.end_location['lat']).to eq 41.9016488
+    expect(first_route.end_location['lng']).to eq 12.4583003
+    expect(first_route.start_address).to eq 'Piazza del Colosseo, 1, 00184 Roma RM, Italy'
+    expect(first_route.end_address).to eq 'Piazza Pio Xii, 1, 00193 Roma RM, Italy'
   end
 
   def expect_colosseum_to_colosseum_result(result)
@@ -148,6 +160,18 @@ RSpec.describe GoogleMapsJuice::Directions do
     first_route = result.first
     expect(first_route).to be_a GoogleMapsJuice::Directions::Response::Route
     expect(first_route.summary).to eq 'Via Celio Vibenna'
+    expect(first_route.legs).to be_a Array
+    expect(first_route.legs.size).to be >= 1
+    expect(first_route.duration['text']).to eq '1 min'
+    expect(first_route.distance['text']).to eq '1 m'
+    expect(first_route.steps).to be_a Array
+    expect(first_route.steps.size).to be >= 1
+    expect(first_route.start_location['lat']).to eq 41.8892732
+    expect(first_route.start_location['lng']).to eq 12.4921921
+    expect(first_route.end_location['lat']).to eq 41.8892732
+    expect(first_route.end_location['lng']).to eq 12.4921921
+    expect(first_route.start_address).to eq 'Piazza del Colosseo, 1, 00184 Roma RM, Italy'
+    expect(first_route.end_address).to eq 'Piazza del Colosseo, 1, 00184 Roma RM, Italy'
   end
 
   def expect_rome_to_sidney_result(result)

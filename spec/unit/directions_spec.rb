@@ -61,6 +61,26 @@ RSpec.describe GoogleMapsJuice::Directions do
         end
       end
 
+      context 'when wrong latitude is passed' do
+        let(:params) { { origin: '0.0,0.0', destination: '91.0,0.0'} }
+
+        it 'raises ArgumentError' do
+          expect { subject }.to raise_error(
+            ArgumentError, 'Wrong latitude value'
+          )
+        end
+      end
+
+      context 'when wrong longitude is passed' do
+        let(:params) { { origin: '0.0,0.0', destination: '0.0,181.0'} }
+
+        it 'raises ArgumentError' do
+          expect { subject }.to raise_error(
+            ArgumentError, 'Wrong longitude value'
+          )
+        end
+      end
+
       context 'when no argument passed' do
         let(:params) { {} }
 

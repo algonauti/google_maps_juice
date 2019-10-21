@@ -174,10 +174,4 @@ RSpec.describe GoogleMapsJuice::Directions do
     expect(first_route.end_address).to eq 'Piazza del Colosseo, 1, 00184 Roma RM, Italy'
   end
 
-  def expect_rome_to_sidney_result(result)
-    expect(result).to be_a GoogleMapsJuice::Directions::Response
-    expect(result['status']).to eq 'ZERO_RESULTS'
-    expect(result['routes']).to be Array
-    expect(result['routes'].size).to be 0
-  end
 end

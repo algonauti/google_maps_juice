@@ -44,11 +44,11 @@ module GoogleMapsJuice
       end
 
       def start_location
-        first_leg['start_location'].to_s
+        first_leg['start_location']
       end
 
       def end_location
-        first_leg['end_location'].to_s
+        first_leg['end_location']
       end
 
       def start_address

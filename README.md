@@ -17,6 +17,7 @@ This gem aims at progressively covering a fair amount of those widely-used servi
 
 * Geocoding
 * Time Zone
+* Directions
 
 Contributors are welcome!
 
@@ -179,6 +180,59 @@ The `by_location` method returns a `GoogleMapsJuice::Timezone::Response`. It's a
 * `raw_offset`: the offset from UTC in seconds
 
 * `dst_offset`: the offset for daylight-savings time in seconds
+
+
+## Directions
+
+[Google's Directions API](https://developers.google.com/maps/documentation/directions/intro#DirectionsRequests) returns the possible routes of given origin and destination geographic locations; Google's API accepts address, textual latitude/longitude value, or place ID of which you wish to calculate directions. Currently this gem implements only latitude/longitude mode.
+`GoogleMapsJuice` will raise an `ArgumentError` if some unsupported param is passed, or when none of the required params are passed.
+
+```ruby
+response = GoogleMapsJuice::Directions.find(origin: '41.8892732,12.4921921', destination: '41.9016488,12.4583003')
+```
+
+Compared to Google's raw API request, it provides validation of both origin and destination, in order to avoid sending requests when they would fail for sure - to learn more see `spec/unit/directions_spec.rb`.
+
+**Accepted params:**
+
+* Both `origin` and `destination` are mandatory
+* `origin` is composed by `latitude` and `longitude`, comma separated float values
+* `destination` same as `origin`
+
+
+### Directions Response
+
+The `find` method returns a `GoogleMapsJuice::Directions::Response`. It's a `Hash` representation of Google's JSON response. However, it also provides a few useful methods:
+
+* `results`: the `Hash` raw result
+
+* `routes`: a `List` of `Route` objects
+
+* `first`: the first `Route` of the `routes` `List`
+
+**How it works**
+
+As described in [Google's Directions API](https://developers.google.com/maps/documentation/directions/intro#Routes), the response contains all possible routes. Each route is composed by some attributes. In particular each route has one or more legs, wich in turn has one or more steps.
+If no waypoint have been passed, the route response will contains a single leg. Since `GoogleMapsJuice::Directions` currently don't handles waypoints, for each route is considered only the first leg.
+The `GoogleMapsJuice::Directions::Response::Route` is a rappresentation of a response route and provides methods to access all route's attributes:
+
+* `summary`: a brief description of the route
+
+* `legs`: all legs of the route, generally a single one
+
+* `steps`: all steps of the first route's leg
+
+* `duration`: time duration of the first route's leg
+
+* `distance`: distance between origin and destination of first route's leg
+
+* `start_location`: `latitude`/`longitude` of the origin first route's leg
+
+* `end_location`: `latitude`/`longitude` of the destination first route's leg
+
+* `start_address`: address of the origin first route's leg
+
+* `end_address`: address of the destination first route's leg
 
 
 ## Development

@@ -14,6 +14,7 @@ module GoogleMapsJuice
   autoload :Endpoint, 'google_maps_juice/endpoint'
   autoload :Geocoding, 'google_maps_juice/geocoding'
   autoload :Timezone, 'google_maps_juice/timezone'
+  autoload :Directions, 'google_maps_juice/directions'
 
   class Error < Exception; end
   class ApiLimitError < Exception; end

@@ -1,0 +1,93 @@
+{
+  "geocoded_waypoints": [
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJrRMgU7ZhLxMRxAOFkC7I8Sg",
+      "types": [
+        "establishment",
+        "point_of_interest",
+        "tourist_attraction"
+      ]
+    },
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJrRMgU7ZhLxMRxAOFkC7I8Sg",
+      "types": [
+        "establishment",
+        "point_of_interest",
+        "tourist_attraction"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "bounds": {
+        "northeast": {
+          "lat": 41.8892732,
+          "lng": 12.4921921
+        },
+        "southwest": {
+          "lat": 41.8892732,
+          "lng": 12.4921921
+        }
+      },
+      "copyrights": "Map data ©2019 Google",
+      "legs": [
+        {
+          "distance": {
+            "text": "1 m",
+            "value": 0
+          },
+          "duration": {
+            "text": "1 min",
+            "value": 0
+          },
+          "end_address": "Piazza del Colosseo, 1, 00184 Roma RM, Italy",
+          "end_location": {
+            "lat": 41.8892732,
+            "lng": 12.4921921
+          },
+          "start_address": "Piazza del Colosseo, 1, 00184 Roma RM, Italy",
+          "start_location": {
+            "lat": 41.8892732,
+            "lng": 12.4921921
+          },
+          "steps": [
+            {
+              "distance": {
+                "text": "1 m",
+                "value": 0
+              },
+              "duration": {
+                "text": "1 min",
+                "value": 0
+              },
+              "end_location": {
+                "lat": 41.8892732,
+                "lng": 12.4921921
+              },
+              "html_instructions": "Head on <b>Via Celio Vibenna</b>",
+              "polyline": {
+                "points": "}nt~Fe{fkA"
+              },
+              "start_location": {
+                "lat": 41.8892732,
+                "lng": 12.4921921
+              },
+              "travel_mode": "DRIVING"
+            }
+          ],
+          "traffic_speed_entry": [],
+          "via_waypoint": []
+        }
+      ],
+      "overview_polyline": {
+        "points": "}nt~Fe{fkA"
+      },
+      "summary": "Via Celio Vibenna",
+      "warnings": [],
+      "waypoint_order": []
+    }
+  ],
+  "status": "OK"
+}

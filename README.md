@@ -197,7 +197,7 @@ Compared to Google's raw API request, it provides validation of both origin and 
 
 * Both `origin` and `destination` are mandatory
 * `origin` is composed by `latitude` and `longitude`, comma separated float values
-* `destination` same as `origin`
+* `destination` same format as `origin`
 
 
 ### Directions Response
@@ -206,15 +206,15 @@ The `find` method returns a `GoogleMapsJuice::Directions::Response`. It's a `Has
 
 * `results`: the `Hash` raw result
 
-* `routes`: a `List` of `Route` objects
+* `routes`: an `Array` of `GoogleMapsJuice::Directions::Response::Route` objects
 
 * `first`: the first `Route` of the `routes` `List`
 
 **How it works**
 
-As described in [Google's Directions API](https://developers.google.com/maps/documentation/directions/intro#Routes), the response contains all possible routes. Each route is composed by some attributes. In particular each route has one or more legs, wich in turn has one or more steps.
-If no waypoint have been passed, the route response will contains a single leg. Since `GoogleMapsJuice::Directions` currently don't handles waypoints, for each route is considered only the first leg.
-The `GoogleMapsJuice::Directions::Response::Route` is a rappresentation of a response route and provides methods to access all route's attributes:
+As described in [Google's Directions API](https://developers.google.com/maps/documentation/directions/intro#Routes), the response contains all possible routes. Each route has some attributes and one or more *legs*, wich in turn have one or more *steps*.
+If no waypoints are passed, the route response will contain a single leg. Since `GoogleMapsJuice::Directions` doesn't handles waypoints yet, only the first leg is considered for each route.
+The `GoogleMapsJuice::Directions::Response::Route` is a representation of a response route and provides methods to access all route's attributes:
 
 * `summary`: a brief description of the route
 

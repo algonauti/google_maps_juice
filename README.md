@@ -210,8 +210,6 @@ The `find` method returns a `GoogleMapsJuice::Directions::Response`. It's a `Has
 
 * `first`: the first `Route` of the `routes` `List`
 
-**How it works**
-
 As described in [Google's Directions API](https://developers.google.com/maps/documentation/directions/intro#Routes), the response contains all possible routes. Each route has some attributes and one or more *legs*, wich in turn have one or more *steps*.
 If no waypoints are passed, the route response will contain a single leg. Since `GoogleMapsJuice::Directions` doesn't handles waypoints yet, only the first leg is considered for each route.
 The `GoogleMapsJuice::Directions::Response::Route` is a representation of a response route and provides methods to access all route's attributes:

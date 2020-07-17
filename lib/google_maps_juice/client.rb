@@ -27,7 +27,7 @@ module GoogleMapsJuice
       else
         msg = "HTTP #{response.status}"
         msg += " - #{response.body}" if response.body.present?
-        raise GoogleMapsJuice::Error, msg
+        raise GoogleMapsJuice::ResponseError, msg
       end
     end
 

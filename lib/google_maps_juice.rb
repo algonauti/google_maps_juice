@@ -16,7 +16,7 @@ module GoogleMapsJuice
   autoload :Timezone, 'google_maps_juice/timezone'
   autoload :Directions, 'google_maps_juice/directions'
 
-  class Error < Exception; end
-  class ApiLimitError < Exception; end
-  class ZeroResults < Exception; end
+  class ResponseError < RuntimeError; end
+  class ApiLimitError < ResponseError; end
+  class ZeroResults < ResponseError; end
 end

@@ -2,11 +2,6 @@
 
 require 'spec_helper'
 
-ROME = '12.496365,41.902783'
-COLOSSEUM = '41.890209,12.492231'
-SAINTPETER = '41.902270,12.457540'
-SIDNEY = '-33.867487,151.206990'
-
 # TODO: cover the remaining contexts
 RSpec.describe GoogleMapsJuice::Directions do
   let(:client) { GoogleMapsJuice::Client.new }

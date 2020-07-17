@@ -42,7 +42,7 @@ RSpec.describe GoogleMapsJuice::Endpoint, webmock: true do
     context 'when response contains limit error' do
       let(:response) { response_fixture('limit-error') }
 
-      it 'raises GoogleMapsJuice::Error' do
+      it 'raises GoogleMapsJuice::ResponseError' do
         expect { subject }.to raise_error(GoogleMapsJuice::ApiLimitError,
           'OVER_QUERY_LIMIT - You have exceeded your daily request quota for this API.')
       end
@@ -51,8 +51,8 @@ RSpec.describe GoogleMapsJuice::Endpoint, webmock: true do
     context 'when response contains error' do
       let(:response) { response_fixture('error') }
 
-      it 'raises GoogleMapsJuice::Error' do
-        expect { subject }.to raise_error(GoogleMapsJuice::Error,
+      it 'raises GoogleMapsJuice::ResponseError' do
+        expect { subject }.to raise_error(GoogleMapsJuice::ResponseError,
           'API UNKNOWN_ERROR - A server error occurred, please retry later')
       end
     end

@@ -14,7 +14,7 @@ module GoogleMapsJuice
       elsif response.limit_error?
         raise GoogleMapsJuice::ApiLimitError, build_error_message(response)
       elsif response.error?
-        raise GoogleMapsJuice::Error, "API #{build_error_message(response)}"
+        raise GoogleMapsJuice::ResponseError, "API #{build_error_message(response)}"
       else
         response
       end

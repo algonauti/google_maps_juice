@@ -34,8 +34,8 @@ RSpec.describe GoogleMapsJuice::Client, webmock: true do
       context 'when HTTP response status is not successful' do
         before { stub_request(:get, url_pattern).to_return(body: "Uh-oh, I crashed!", status: 503) }
 
-        it 'raises GoogleMapsJuice::Error' do
-          expect { subject }.to raise_error(GoogleMapsJuice::Error,
+        it 'raises GoogleMapsJuice::ResponseError' do
+          expect { subject }.to raise_error(GoogleMapsJuice::ResponseError,
             'HTTP 503 - Uh-oh, I crashed!'
           )
         end

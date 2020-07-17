@@ -73,13 +73,13 @@ This is especially useful in some "hybrid" scenario, where an API key is shared 
 
 ## Error Handling
 
-If Google servers respond with a non-successful HTTP status code, i.e. `4xx` or `5xx`, a `GoogleMapsJuice::Error` is raised with a message of the form `'HTTP 503 - Error details as returned by the server'`.
+If Google servers respond with a non-successful HTTP status code, i.e. `4xx` or `5xx`, a `GoogleMapsJuice::ResponseError` is raised with a message of the form `'HTTP 503 - Error details as returned by the server'`.
 
 API errors are also handled, based on the `status` attribute of Google's JSON response, and the optional `error_message` attribute.
 
 * `GoogleMapsJuice::ZeroResults` is raised when `status` is `'ZERO_RESULTS'`
 * `GoogleMapsJuice::ApiLimitError` is raised when `status` is `'OVER_DAILY_LIMIT'` or `'OVER_QUERY_LIMIT'`
-* `GoogleMapsJuice::Error` is raised when `status` is not `OK` with a message of the form `API <status> - <error_message>`
+* `GoogleMapsJuice::ResponseError` is raised when `status` is not `OK` with a message of the form `API <status> - <error_message>`
 
 
 ## Geocoding

@@ -50,6 +50,12 @@ module WebmockEnabler
   end
 end
 
+## Directions Helpers
+ROME = '12.496365,41.902783'
+COLOSSEUM = '41.890209,12.492231'
+SAINTPETER = '41.902270,12.457540'
+SIDNEY = '-33.867487,151.206990'
+
 RSpec.configure do |config|
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!

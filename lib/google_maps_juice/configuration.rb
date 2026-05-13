@@ -1,5 +1,19 @@
-require 'active_support/configurable'
-
 module GoogleMapsJuice
-  include ActiveSupport::Configurable
+  class Configuration
+    attr_accessor :api_key
+
+    def initialize
+      @api_key = nil
+    end
+  end
+
+  class << self
+    def configure
+      yield config
+    end
+
+    def config
+      @config ||= Configuration.new
+    end
+  end
 end

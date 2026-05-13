@@ -1,7 +1,6 @@
 if ENV['CI']
   require 'simplecov'
   require 'simplecov-lcov'
-  SimpleCov::Formatter::LcovFormatter.config.report_with_adapter_at_branch_level = false
   SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
   SimpleCov.start
 end

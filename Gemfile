@@ -10,4 +10,5 @@ group :development, :test do
   gem 'dotenv', '~> 3.0'
   gem 'vcr', '~> 6.0'
   gem 'simplecov', require: false
+  gem 'simplecov-lcov', require: false
 end

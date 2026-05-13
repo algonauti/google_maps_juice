@@ -1,5 +1,9 @@
-require 'simplecov'
-SimpleCov.start if ENV['CI']
+if ENV['CI']
+  require 'simplecov'
+  require 'simplecov-lcov'
+  SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
+  SimpleCov.start
+end
 
 require "bundler/setup"
 require "google_maps_juice"
